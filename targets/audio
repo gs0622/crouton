@@ -148,6 +148,9 @@ END
         echo "Compiling CRAS (${cras_arch:-native})..." 1>&2
         # Convert Makefile.am to a shell script, and run it.
         {
+            echo '
+                CFLAGS="--verbose -DCRAS_SOCKET_FILE_DIR=\"/var/run/cras\""
+            '
             convert_automake
 
             echo '
